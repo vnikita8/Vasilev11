@@ -15,7 +15,7 @@ namespace Vasilev11
         private int accountNumber;
         private int balance;
         private AccountType type;
-        private Queue<BankTransaction> Transactions;
+        private Queue<BankTransaction> Transactions = new Queue<BankTransaction>();
 
         public BankAccount()
         {
@@ -86,6 +86,10 @@ namespace Vasilev11
                 return false;
         }
 
+        public Queue<BankTransaction> getTransactions()
+        {
+            return Transactions;
+        }
         // (Удалено)  public void ChangeBalance(int money) {this.balance = money;}  (Удалено)//
         // (Удалено)  public void ChangeType(AccountType type) {this.type = type;}  (Удалено)//
     }
