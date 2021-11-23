@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vasilev11
@@ -21,7 +14,8 @@ namespace Vasilev11
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            saveFileDialog1.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            SongsAss();
         }
 
         private void buttGen_Click(object sender, EventArgs e)
@@ -58,18 +52,28 @@ namespace Vasilev11
         {
             if (accounts == null)
                 return;
-            foreach (BankAccount account in accounts)
+            if (TakeNum.Value != 0 || PutNum.Value != 0)
             {
-                if (account.GetNumber().ToString() == comboNumbers.SelectedItem.ToString())
+                foreach (BankAccount account in accounts)
                 {
-                    account.PutMoney((int)PutNum.Value);
-                    bool successul = account.TryTakeMoney((int)TakeNum.Value);
-                    if (!successul)
-                        MessageBox.Show("Недостаточно средств", "Невозможно");
-                    DrawBankAccount();
-                    return;
+                    if (account.GetNumber().ToString() == comboNumbers.SelectedItem.ToString())
+                    {
+                        if (PutNum.Value != 0)
+                        {
+                            account.PutMoney((int)PutNum.Value);
+                        }
+                        if (TakeNum.Value != 0)
+                        {
+                            bool successul = account.TryTakeMoney((int)TakeNum.Value);
+                            if (!successul)
+                                MessageBox.Show("Недостаточно средств", "Невозможно");
+                            DrawBankAccount();
+                            return;
+                        }
+                    }
                 }
             }
+            
         }
 
         private void comboTransaction_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +94,44 @@ namespace Vasilev11
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = saveFileDialog1.FileName;
+            foreach (BankAccount account in accounts)
+            {
+                if (account.GetNumber().ToString() == comboTransaction.SelectedItem.ToString())
+                {
+                    account.Dispose(filename);
+                    return;
+                }
+            }
+        }
+
+        private void SongsAss()
+        {
+            songs = new Song[6];
+            string[] names = new string[6] { "Oxxxymiron", "Колос", "Markul", "Винтаж", "Денис Майданов", "Три дня дождя" };
+            string[] values = new string[6] { "Колесо", "Бiблiотека", "10,000 Ночей", "Знак Водолея", "Пролетая над нами", "Весна" };
+            songs[0] = new Song();
+            songs[0].setName(values[0]);
+            songs[0].setAuthor(names[0]);
+            richSongs.Text = $"{songs[0].Title()}\n";
+            for (int songId = 1; songId < songs.Length; songId++)
+            {
+                songs[songId] = new Song();
+                songs[songId].setName(values[songId]);
+                songs[songId].setAuthor(names[songId]);
+                songs[songId].setPrev(songs[songId - 1]);
+                richSongs.Text += $"{songs[songId].Title()}\n";
+            }
+            songs[0].setPrev(songs[songs.Length - 1]);
+
+            richTextBox2.Text = $"{songs[0].Title()} == {songs[1].Title()} ? : {songs[0].Equals(songs[1])}";
+
         }
     }
 }

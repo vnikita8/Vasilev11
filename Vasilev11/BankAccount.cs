@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Vasilev11
 {
@@ -45,7 +42,14 @@ namespace Vasilev11
         public void Dispose(string filepath)
         {
             StreamWriter streamWriter = new StreamWriter(filepath);
-            streamWriter.WriteLine(Transactions); //вызвать метод GC.SuppressFinalize
+            int index = 0;
+            foreach(BankTransaction transaction in Transactions)
+            {
+                streamWriter.WriteLine($"({index}): {transaction.TransferMoney}"); 
+                index++;
+            }
+            streamWriter.Close();          
+            GC.SuppressFinalize(this); //вызвать метод GC.SuppressFinalize
         }
 
         public void PutMoney(int count)

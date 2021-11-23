@@ -30,6 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboTransaction = new System.Windows.Forms.ComboBox();
+            this.richTransactions = new System.Windows.Forms.RichTextBox();
             this.numericMoney = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,9 +56,7 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.richSongs = new System.Windows.Forms.RichTextBox();
-            this.richTransactions = new System.Windows.Forms.RichTextBox();
-            this.comboTransaction = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericMoney)).BeginInit();
@@ -70,10 +71,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(712, 366);
+            this.tabControl1.Size = new System.Drawing.Size(949, 450);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -99,14 +100,44 @@
             this.tabPage1.Controls.Add(this.comboTo);
             this.tabPage1.Controls.Add(this.buttTransfer);
             this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Size = new System.Drawing.Size(704, 340);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(941, 421);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "#";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(700, 372);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 39);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Dispose";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboTransaction
+            // 
+            this.comboTransaction.FormattingEnabled = true;
+            this.comboTransaction.Location = new System.Drawing.Point(700, 12);
+            this.comboTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboTransaction.Name = "comboTransaction";
+            this.comboTransaction.Size = new System.Drawing.Size(224, 24);
+            this.comboTransaction.TabIndex = 24;
+            this.comboTransaction.SelectedIndexChanged += new System.EventHandler(this.comboTransaction_SelectedIndexChanged);
+            // 
+            // richTransactions
+            // 
+            this.richTransactions.Location = new System.Drawing.Point(700, 44);
+            this.richTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTransactions.Name = "richTransactions";
+            this.richTransactions.Size = new System.Drawing.Size(224, 319);
+            this.richTransactions.TabIndex = 23;
+            this.richTransactions.Text = "";
             // 
             // numericMoney
             // 
@@ -115,52 +146,50 @@
             0,
             0,
             0});
-            this.numericMoney.Location = new System.Drawing.Point(430, 276);
-            this.numericMoney.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericMoney.Location = new System.Drawing.Point(573, 340);
+            this.numericMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericMoney.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.numericMoney.Name = "numericMoney";
-            this.numericMoney.Size = new System.Drawing.Size(90, 20);
+            this.numericMoney.Size = new System.Drawing.Size(120, 22);
             this.numericMoney.TabIndex = 22;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 278);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(507, 342);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 21;
             this.label7.Text = "Сумма";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(385, 108);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(513, 133);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(45, 16);
             this.label6.TabIndex = 20;
             this.label6.Text = "Счёт: ";
             // 
             // comboNumbers
             // 
             this.comboNumbers.FormattingEnabled = true;
-            this.comboNumbers.Location = new System.Drawing.Point(423, 106);
-            this.comboNumbers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboNumbers.Location = new System.Drawing.Point(564, 130);
+            this.comboNumbers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboNumbers.Name = "comboNumbers";
-            this.comboNumbers.Size = new System.Drawing.Size(92, 21);
+            this.comboNumbers.Size = new System.Drawing.Size(121, 24);
             this.comboNumbers.TabIndex = 19;
             // 
             // buttTakePut
             // 
-            this.buttTakePut.Location = new System.Drawing.Point(370, 182);
-            this.buttTakePut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttTakePut.Location = new System.Drawing.Point(493, 224);
+            this.buttTakePut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttTakePut.Name = "buttTakePut";
-            this.buttTakePut.Size = new System.Drawing.Size(150, 32);
+            this.buttTakePut.Size = new System.Drawing.Size(200, 39);
             this.buttTakePut.TabIndex = 17;
             this.buttTakePut.Text = "Выполнить";
             this.buttTakePut.UseVisualStyleBackColor = true;
@@ -173,15 +202,15 @@
             0,
             0,
             0});
-            this.PutNum.Location = new System.Drawing.Point(424, 158);
-            this.PutNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PutNum.Location = new System.Drawing.Point(565, 194);
+            this.PutNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PutNum.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.PutNum.Name = "PutNum";
-            this.PutNum.Size = new System.Drawing.Size(90, 20);
+            this.PutNum.Size = new System.Drawing.Size(120, 22);
             this.PutNum.TabIndex = 16;
             // 
             // TakeNum
@@ -191,54 +220,51 @@
             0,
             0,
             0});
-            this.TakeNum.Location = new System.Drawing.Point(424, 130);
-            this.TakeNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TakeNum.Location = new System.Drawing.Point(565, 160);
+            this.TakeNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TakeNum.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.TakeNum.Name = "TakeNum";
-            this.TakeNum.Size = new System.Drawing.Size(90, 20);
+            this.TakeNum.Size = new System.Drawing.Size(120, 22);
             this.TakeNum.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(375, 158);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(500, 194);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Внести: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(381, 130);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(508, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "Снять: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(413, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(551, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 12;
             this.label5.Text = "Количество";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // buttGen
             // 
-            this.buttGen.Location = new System.Drawing.Point(370, 60);
-            this.buttGen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttGen.Location = new System.Drawing.Point(493, 74);
+            this.buttGen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttGen.Name = "buttGen";
-            this.buttGen.Size = new System.Drawing.Size(150, 32);
+            this.buttGen.Size = new System.Drawing.Size(200, 39);
             this.buttGen.TabIndex = 11;
             this.buttGen.Text = "Сгенерировать";
             this.buttGen.UseVisualStyleBackColor = true;
@@ -246,56 +272,54 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(401, 36);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Location = new System.Drawing.Point(535, 44);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(90, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(374, 255);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(499, 314);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "На счёт";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 230);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(492, 283);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Со счёта";
             // 
             // comboFrom
             // 
             this.comboFrom.FormattingEnabled = true;
-            this.comboFrom.Location = new System.Drawing.Point(430, 228);
-            this.comboFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboFrom.Location = new System.Drawing.Point(573, 281);
+            this.comboFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboFrom.Name = "comboFrom";
-            this.comboFrom.Size = new System.Drawing.Size(92, 21);
+            this.comboFrom.Size = new System.Drawing.Size(121, 24);
             this.comboFrom.TabIndex = 3;
             // 
             // comboTo
             // 
             this.comboTo.FormattingEnabled = true;
-            this.comboTo.Location = new System.Drawing.Point(430, 252);
-            this.comboTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboTo.Location = new System.Drawing.Point(573, 310);
+            this.comboTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboTo.Name = "comboTo";
-            this.comboTo.Size = new System.Drawing.Size(92, 21);
+            this.comboTo.Size = new System.Drawing.Size(121, 24);
             this.comboTo.TabIndex = 2;
             // 
             // buttTransfer
             // 
-            this.buttTransfer.Location = new System.Drawing.Point(371, 301);
-            this.buttTransfer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttTransfer.Location = new System.Drawing.Point(495, 370);
+            this.buttTransfer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttTransfer.Name = "buttTransfer";
-            this.buttTransfer.Size = new System.Drawing.Size(150, 32);
+            this.buttTransfer.Size = new System.Drawing.Size(200, 39);
             this.buttTransfer.TabIndex = 1;
             this.buttTransfer.Text = "Перевести";
             this.buttTransfer.UseVisualStyleBackColor = true;
@@ -303,10 +327,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 5);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Location = new System.Drawing.Point(9, 6);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(360, 329);
+            this.richTextBox1.Size = new System.Drawing.Size(479, 404);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -316,10 +340,10 @@
             this.tabPage6.Controls.Add(this.richTextBox2);
             this.tabPage6.Controls.Add(this.label14);
             this.tabPage6.Controls.Add(this.richSongs);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(591, 340);
+            this.tabPage6.Size = new System.Drawing.Size(941, 421);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "#2";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -327,76 +351,46 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(395, 80);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Location = new System.Drawing.Point(527, 98);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 13);
+            this.label16.Size = new System.Drawing.Size(80, 16);
             this.label16.TabIndex = 7;
             this.label16.Text = "Сравнение";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(280, 95);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox2.Location = new System.Drawing.Point(373, 117);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(264, 239);
+            this.richTextBox2.Size = new System.Drawing.Size(351, 293);
             this.richTextBox2.TabIndex = 6;
             this.richTextBox2.Text = "";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(117, 4);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(156, 5);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.Size = new System.Drawing.Size(96, 16);
             this.label14.TabIndex = 1;
             this.label14.Text = "Список песен";
             // 
             // richSongs
             // 
-            this.richSongs.Location = new System.Drawing.Point(7, 20);
-            this.richSongs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richSongs.Location = new System.Drawing.Point(9, 25);
+            this.richSongs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richSongs.Name = "richSongs";
-            this.richSongs.Size = new System.Drawing.Size(270, 314);
+            this.richSongs.Size = new System.Drawing.Size(359, 386);
             this.richSongs.TabIndex = 0;
             this.richSongs.Text = "";
             // 
-            // richTransactions
-            // 
-            this.richTransactions.Location = new System.Drawing.Point(525, 36);
-            this.richTransactions.Name = "richTransactions";
-            this.richTransactions.Size = new System.Drawing.Size(169, 260);
-            this.richTransactions.TabIndex = 23;
-            this.richTransactions.Text = "";
-            // 
-            // comboTransaction
-            // 
-            this.comboTransaction.FormattingEnabled = true;
-            this.comboTransaction.Location = new System.Drawing.Point(525, 10);
-            this.comboTransaction.Margin = new System.Windows.Forms.Padding(2);
-            this.comboTransaction.Name = "comboTransaction";
-            this.comboTransaction.Size = new System.Drawing.Size(169, 21);
-            this.comboTransaction.TabIndex = 24;
-            this.comboTransaction.SelectedIndexChanged += new System.EventHandler(this.comboTransaction_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(525, 302);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 32);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Dispose";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 366);
+            this.ClientSize = new System.Drawing.Size(948, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -443,6 +437,7 @@
         private System.Windows.Forms.ComboBox comboTransaction;
         private System.Windows.Forms.RichTextBox richTransactions;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
